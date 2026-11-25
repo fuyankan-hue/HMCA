@@ -1,0 +1,263 @@
+{
+  "fusion": {
+    "order": [
+      "initial_direct",
+      "geometry_proposal",
+      "identity"
+    ],
+    "rows": [
+      "translation",
+      "yaw"
+    ],
+    "weights": [
+      [
+        0.397699548937307,
+        0.3621925683344833,
+        0.2401078827282096
+      ],
+      [
+        0.49774527526749746,
+        0.5022412858260525,
+        1.3438906449964724e-05
+      ]
+    ]
+  },
+  "training": {
+    "seed": 2333,
+    "split": "AV2 Training",
+    "steps": 1000,
+    "batch_size": 32,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "gradient_norm_clip": 5,
+    "optimizer": "AdamW",
+    "yaw_scale_deg": 2,
+    "active_magnitudes": [
+      0.5,
+      1.0,
+      2.0
+    ],
+    "probabilities": {
+      "clean": 0.4,
+      "translation": 0.2,
+      "yaw": 0.2,
+      "independent_se2": 0.2
+    }
+  },
+  "validation": {
+    "empd": {
+      "train_seed": 2333,
+      "perturbation_seeds": [
+        7,
+        123,
+        2333
+      ],
+      "n_scenarios": 24988,
+      "conditions": [
+        {
+          "condition": "clean",
+          "translation_m": 0.0,
+          "yaw_deg": 0.0,
+          "lane_removal_fraction": 0.0
+        },
+        {
+          "condition": "mild",
+          "translation_m": 0.5,
+          "yaw_deg": 0.5,
+          "lane_removal_fraction": 0.0
+        },
+        {
+          "condition": "medium",
+          "translation_m": 1.0,
+          "yaw_deg": 1.0,
+          "lane_removal_fraction": 0.0
+        },
+        {
+          "condition": "high",
+          "translation_m": 2.0,
+          "yaw_deg": 2.0,
+          "lane_removal_fraction": 0.0
+        },
+        {
+          "condition": "trans1",
+          "translation_m": 1.0,
+          "yaw_deg": 0.0,
+          "lane_removal_fraction": 0.0
+        },
+        {
+          "condition": "trans2",
+          "translation_m": 2.0,
+          "yaw_deg": 0.0,
+          "lane_removal_fraction": 0.0
+        },
+        {
+          "condition": "yaw1",
+          "translation_m": 0.0,
+          "yaw_deg": 1.0,
+          "lane_removal_fraction": 0.0
+        },
+        {
+          "condition": "yaw2",
+          "translation_m": 0.0,
+          "yaw_deg": 2.0,
+          "lane_removal_fraction": 0.0
+        },
+        {
+          "condition": "t05_y2",
+          "translation_m": 0.5,
+          "yaw_deg": 2.0,
+          "lane_removal_fraction": 0.0
+        },
+        {
+          "condition": "t2_y05",
+          "translation_m": 2.0,
+          "yaw_deg": 0.5,
+          "lane_removal_fraction": 0.0
+        },
+        {
+          "condition": "t1_y2",
+          "translation_m": 1.0,
+          "yaw_deg": 2.0,
+          "lane_removal_fraction": 0.0
+        },
+        {
+          "condition": "t2_y1",
+          "translation_m": 2.0,
+          "yaw_deg": 1.0,
+          "lane_removal_fraction": 0.0
+        },
+        {
+          "condition": "clean_drop20",
+          "translation_m": 0.0,
+          "yaw_deg": 0.0,
+          "lane_removal_fraction": 0.2
+        },
+        {
+          "condition": "clean_drop40",
+          "translation_m": 0.0,
+          "yaw_deg": 0.0,
+          "lane_removal_fraction": 0.4
+        },
+        {
+          "condition": "high_drop20",
+          "translation_m": 2.0,
+          "yaw_deg": 2.0,
+          "lane_removal_fraction": 0.2
+        },
+        {
+          "condition": "high_drop40",
+          "translation_m": 2.0,
+          "yaw_deg": 2.0,
+          "lane_removal_fraction": 0.4
+        }
+      ],
+      "methods": [
+        "Uncorrected",
+        "HMCA",
+        "Yaw-only",
+        "RALR"
+      ],
+      "bootstrap": {
+        "seed": 5333,
+        "replicates": 3000,
+        "resampling_unit": "scene",
+        "CI95": "percentile"
+      }
+    },
+    "qcnet": {
+      "train_seed": 2333,
+      "perturbation_seeds": [
+        2333
+      ],
+      "n_scenarios": 24988,
+      "conditions": [
+        {
+          "condition": "clean",
+          "translation_m": 0.0,
+          "yaw_deg": 0.0,
+          "lane_removal_fraction": 0.0
+        },
+        {
+          "condition": "high",
+          "translation_m": 2.0,
+          "yaw_deg": 2.0,
+          "lane_removal_fraction": 0.0
+        },
+        {
+          "condition": "trans2",
+          "translation_m": 2.0,
+          "yaw_deg": 0.0,
+          "lane_removal_fraction": 0.0
+        },
+        {
+          "condition": "yaw2",
+          "translation_m": 0.0,
+          "yaw_deg": 2.0,
+          "lane_removal_fraction": 0.0
+        },
+        {
+          "condition": "t05_y2",
+          "translation_m": 0.5,
+          "yaw_deg": 2.0,
+          "lane_removal_fraction": 0.0
+        },
+        {
+          "condition": "t2_y05",
+          "translation_m": 2.0,
+          "yaw_deg": 0.5,
+          "lane_removal_fraction": 0.0
+        },
+        {
+          "condition": "t1_y2",
+          "translation_m": 1.0,
+          "yaw_deg": 2.0,
+          "lane_removal_fraction": 0.0
+        },
+        {
+          "condition": "t2_y1",
+          "translation_m": 2.0,
+          "yaw_deg": 1.0,
+          "lane_removal_fraction": 0.0
+        },
+        {
+          "condition": "clean_drop40",
+          "translation_m": 0.0,
+          "yaw_deg": 0.0,
+          "lane_removal_fraction": 0.4
+        },
+        {
+          "condition": "high_drop40",
+          "translation_m": 2.0,
+          "yaw_deg": 2.0,
+          "lane_removal_fraction": 0.4
+        }
+      ],
+      "methods": [
+        "Uncorrected",
+        "HMCA",
+        "Yaw-only",
+        "Direct"
+      ],
+      "bootstrap": {
+        "seed": 5333,
+        "replicates": 3000,
+        "resampling_unit": "scene",
+        "CI95": "percentile"
+      }
+    }
+  },
+  "archival_checkpoint_sha256": {
+    "empd": "903874e2be2931cff7af597c654c1d01ded9abc441e9412dc1da0b8ff9781141",
+    "qcnet": "4961850e3cd0d827bd7fc72fac44108fc2eda0e9f45d5fb7e5699e590545213d"
+  },
+  "frozen_source_sha256": {
+    "observability.py": "e152a8a9bf45eb15dcd7d7f33f477e885c5a41f2d16519dc519408f86b35adb8",
+    "hmca_v21.py": "7ceae05952e6a96a0c32c81097de80e837fc4ed2ceff4e4e57a6454398637264",
+    "stage3_directional.py": "6e44183deeaa0f5121f5918a59bf05b3b5c2ace2d6a1f79f0abd266b138ce3dc",
+    "evidence45.py": "25a60ccf9dfd1e546968081bda599a0f5107d71cfe2e619271bda0d257c97318",
+    "ralr.py": "37da39d2dc97b409a7872c02f525edd99a6bbee21a2f126deecbc31bd53b5cdd",
+    "m0_frozen.py": "90fb71ae6c6bb018262051f7b87cfa551758857d584bcdff7161634cf881b7f4",
+    "stage4_branches.py": "5f8f8e2bd1394a70f65eb5d8974dcf76d5138391b60bfb31870f90205ccdd285"
+  },
+  "ralr_config_sha256": "5268411638353745ac513070fbd6b9a9eeb93b4e1e858b9173a69e4ef52d47e6"
+}

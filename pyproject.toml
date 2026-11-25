@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hmca-alignment"
+version = "0.1.0"
+description = "Learning-guided history–map SE(2) alignment"
+readme = "README.md"
+license = "BSD-3-Clause"
+license-files = ["LICENSE", "LICENSES/*.txt"]
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.24,<3", "scipy>=1.10,<2"]
+
+[project.optional-dependencies]
+encoder = ["torch>=2.0"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
